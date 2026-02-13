@@ -1,13 +1,140 @@
-# Environnement virtuel
-venv/
+# ========================================
+# NEXUS INTELLIGENCE - .gitignore
+# ========================================
 
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# DuckDB
+# Environnement virtuel
+venv/
+env/
+ENV/
+.venv
+venv.bak/
+env.bak/
+
+# DuckDB Database Files
 *.duckdb
+*.duckdb.wal
+*.db
+*.db-journal
 
-# Système
+# Data Files (fichiers volumineux)
+data/*.csv
+data/*.parquet
+data/*.json
+data/*.xlsx
+data/*.xls
+# Exception : conserver le dossier data/ avec .gitkeep
+!data/.gitkeep
+!data/README.md
+
+# Compressed Archives (sauf dataset.zip qui doit être commité)
+# data/*.zip
+# data/*.tar.gz
+# data/*.rar
+
+# Système d'exploitation
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Environnement & Secrets
 .env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets.toml
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Logs & Debug
+*.log
+logs/
+debug.log
+error.log
+
+# Tests & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Documentation Build
+docs/_build/
+docs/.doctrees/
+site/
+
+# Package Management
+poetry.lock
+Pipfile.lock
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+*.bak
+*.cache
+
+# OS Generated
+*.autosave
+.fuse_hidden*
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre
+.pyre/
