@@ -132,58 +132,32 @@ L'application transforme des données brutes (Big Data) en **indicateurs straté
 - Git
 - pip (gestionnaire de paquets Python)
 
-### Étapes d'Installation
-
-#### 1. Cloner le dépôt
+### Installation Rapide (5 minutes)
 
 ```bash
+# 1. Cloner le dépôt
 git clone https://github.com/AbdenourAchouri/Streamlit_DuckDB.git
 cd Streamlit_DuckDB
-```
 
-#### 2. Basculer sur la branche feature
-
-```bash
-git checkout feature/kpi-integration
-```
-
-#### 3. Créer l'environnement virtuel (Recommandé)
-
-**Windows :**
-```bash
+# 2. Créer l'environnement virtuel
+# Windows
 python -m venv venv
 venv\Scripts\activate
-```
 
-**Mac / Linux :**
-```bash
+# Mac / Linux
 python3 -m venv venv
 source venv/bin/activate
-```
 
-#### 4. Installer les dépendances
-
-```bash
+# 3. Installer les dépendances
 pip install -r requirements.txt
-```
 
-#### 5. ⚠️ Préparation des Données (Étape Critique)
-
-Le fichier `tracks.csv` est volumineux (>100Mo) et a été compressé pour respecter les limites GitHub.
-
-**Action requise :**
-```bash
-# Décompresser le fichier tracks.zip
+# 4. Préparer les données (si nécessaire)
 cd data
+# Décompresser tracks.zip si vous voulez utiliser Spotify Tracks
 unzip tracks.zip
 cd ..
-```
 
-> **Note :** Sans cette étape, l'analyse Spotify Tracks ne fonctionnera pas.
-
-#### 6. Lancer l'application
-
-```bash
+# 5. Lancer l'application
 streamlit run app.py
 ```
 
@@ -230,24 +204,20 @@ Streamlit_DuckDB/
 ├── app.py                      # Point d'entrée de l'application
 ├── requirements.txt            # Dépendances Python
 ├── README.md                   # Documentation du projet
+├── .gitignore                  # Fichiers exclus de Git
 │
 ├── data/                       # Jeux de données
 │   ├── netflix_titles.csv
 │   ├── artists.csv
-│   ├── tracks.zip              # ⚠️ À décompresser
-│   └── tracks.csv              # (généré après décompression)
+│   └── tracks.zip              # ⚠️ À décompresser pour Spotify Tracks
 │
-├── modules/                    # Modules métier
+├── utils/                      # Utilitaires
 │   ├── __init__.py
-│   ├── nexus_core.py          # Auto-détection & DuckDB
-│   ├── netflix_dashboard.py   # Module Netflix
-│   └── spotify_dashboard.py   # Module Spotify
+│   └── db.py                   # Gestion connexion DuckDB
 │
-├── assets/                     # Ressources visuelles
-│   └── logo.png
+├── database/                   # Fichiers base de données (optionnel)
 │
-└── docs/                       # Documentation technique
-    └── architecture.md
+└── venv/                       # Environnement virtuel (non versionné)
 ```
 
 ---
@@ -264,31 +234,18 @@ Ce projet a été développé selon une méthodologie **Agile** avec répartitio
 | **👤 Augustin AMIEL** | Product Owner & UI Design | • Conception UX/UI et design "Nexus"<br>• Développement Dashboard Netflix<br>• Intégration graphiques Plotly<br>• Documentation technique et métier |
 | **👤 Fares FOUASSI** | Data Analyst & QA | • Analyse datasets et définition KPIs<br>• Dashboards Spotify (Tracks & Artists)<br>• Filtres dynamiques et SQL analytique<br>• Tests fonctionnels et recette qualité |
 
-### Workflow Git
-
-```
-main (stable)
-  │
-  └── feature/kpi-integration (développement actif)
-        │
-        ├── Modules Netflix & Spotify
-        ├── Auto-détection CSV
-        └── KPIs stratégiques
-```
-
-**Prochaine étape :** Merge de `feature/kpi-integration` vers `main` après validation de la Pull Request.
-
 ---
 
 ## 🗺️ Roadmap
 
-### ✅ Version Actuelle (v1.0 - Feature Branch)
+### ✅ Version Actuelle (v1.0)
 
 - [x] Auto-détection de fichiers CSV
 - [x] Dashboard Netflix complet
 - [x] Dashboard Spotify (Tracks & Artists)
 - [x] KPIs stratégiques (Brand Safety, Popularité, Géostratégie)
 - [x] Filtres dynamiques interactifs
+- [x] Module utils/ avec gestion DuckDB optimisée
 
 ### 🚧 Prochaines Fonctionnalités (v1.1)
 
@@ -308,11 +265,52 @@ main (stable)
 
 ---
 
+## 🛠️ Dépannage
+
+### Problème : `ModuleNotFoundError: No module named 'utils'`
+
+**Solution :**
+```bash
+# Vérifier que le dossier utils/ existe
+dir utils  # Windows
+ls utils   # Mac/Linux
+
+# Si absent, le créer et ajouter les fichiers nécessaires
+# Voir la documentation complète dans le repo
+```
+
+### Problème : Erreur lors de `pip install`
+
+**Solution :**
+```bash
+# Mettre à jour pip
+pip install --upgrade pip
+
+# Réinstaller les dépendances
+pip install -r requirements.txt --no-cache-dir
+```
+
+### Problème : L'application ne démarre pas
+
+**Solution :**
+```bash
+# Vérifier la version de Python
+python --version  # Doit être >= 3.10
+
+# Vérifier que l'environnement virtuel est activé
+# Vous devriez voir (venv) dans votre terminal
+
+# Relancer l'application
+streamlit run app.py
+```
+
+---
+
 ## 📝 Licence
 
 Ce projet a été développé dans un cadre académique (MBA ESG - Management Opérationnel).
 
-© 2024 - Équipe NEXUS INTELLIGENCE
+© 2024-2026 - Équipe NEXUS INTELLIGENCE
 
 ---
 
@@ -321,7 +319,7 @@ Ce projet a été développé dans un cadre académique (MBA ESG - Management Op
 Pour toute question ou suggestion :
 
 - **GitHub Issues** : [Créer un ticket](https://github.com/AbdenourAchouri/Streamlit_DuckDB/issues)
-- **Email** : [Contact équipe projet]
+- **GitHub Repository** : [Streamlit_DuckDB](https://github.com/AbdenourAchouri/Streamlit_DuckDB)
 
 ---
 
