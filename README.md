@@ -209,7 +209,7 @@ Streamlit_DuckDB/
 ├── data/                       # Jeux de données
 │   ├── netflix_titles.csv
 │   ├── artists.csv
-│   └── tracks.zip              # ⚠️ À décompresser pour Spotify Tracks
+│   └── tracks.csv              
 │
 ├── utils/                      # Utilitaires
 │   ├── __init__.py
@@ -262,47 +262,6 @@ Ce projet a été développé selon une méthodologie **Agile** avec répartitio
 - [ ] Recommandations stratégiques automatisées
 - [ ] Intégration d'APIs temps réel
 - [ ] Mode multi-utilisateurs avec authentification
-
----
-
-## 🛠️ Dépannage
-
-### Problème : `ModuleNotFoundError: No module named 'utils'`
-
-**Solution :**
-```bash
-# Vérifier que le dossier utils/ existe
-dir utils  # Windows
-ls utils   # Mac/Linux
-
-# Si absent, le créer et ajouter les fichiers nécessaires
-# Voir la documentation complète dans le repo
-```
-
-### Problème : Erreur lors de `pip install`
-
-**Solution :**
-```bash
-# Mettre à jour pip
-pip install --upgrade pip
-
-# Réinstaller les dépendances
-pip install -r requirements.txt --no-cache-dir
-```
-
-### Problème : L'application ne démarre pas
-
-**Solution :**
-```bash
-# Vérifier la version de Python
-python --version  # Doit être >= 3.10
-
-# Vérifier que l'environnement virtuel est activé
-# Vous devriez voir (venv) dans votre terminal
-
-# Relancer l'application
-streamlit run app.py
-```
 
 ---
 
