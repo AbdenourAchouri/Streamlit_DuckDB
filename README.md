@@ -173,9 +173,9 @@ Le fichier `tracks.csv` est volumineux (>100Mo) et a été compressé pour respe
 
 **Action requise :**
 ```bash
-# Décompresser le fichier dataset.zip
+# Décompresser le fichier tracks.zip
 cd data
-unzip dataset.zip
+unzip tracks.zip
 cd ..
 ```
 
@@ -278,6 +278,7 @@ main (stable)
 
 **Prochaine étape :** Merge de `feature/kpi-integration` vers `main` après validation de la Pull Request.
 
+---
 
 ## 🗺️ Roadmap
 
@@ -315,6 +316,22 @@ Ce projet a été développé dans un cadre académique (MBA ESG - Management Op
 
 ---
 
+## 📞 Contact & Support
+
+Pour toute question ou suggestion :
+
+- **GitHub Issues** : [Créer un ticket](https://github.com/AbdenourAchouri/Streamlit_DuckDB/issues)
+- **Email** : [Contact équipe projet]
+
+---
+
+## 🙏 Remerciements
+
+- **MBA ESG** : Encadrement pédagogique et cadrage du projet
+- **Communauté Streamlit** : Documentation et support technique
+- **DuckDB** : Performance exceptionnelle pour l'analytique In-Memory
+
+---
 
 <div align="center">
 
